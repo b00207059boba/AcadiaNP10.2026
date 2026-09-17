@@ -1,4 +1,4 @@
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,6 @@ html_content = """<!DOCTYPE html>
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
 
-    /* 自動切換深色/夜間模式 (Dark Mode) */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg-color: #0f172a;
@@ -38,7 +37,6 @@ html_content = """<!DOCTYPE html>
     body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 40px; }
     .container { max-width: 600px; margin: 0 auto; padding: 16px; }
 
-    /* 頂部 Hero 卡片 */
     .hero-card { background: var(--card-bg); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
     .hero-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; color: var(--text-main); }
     .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 16px; }
@@ -52,7 +50,6 @@ html_content = """<!DOCTYPE html>
     .sec-title { font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
     .card { background: var(--card-bg); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 12px; }
 
-    /* 魔戒風中世紀羊皮紙地圖容器 (Parchment Style Map) */
     .map-container { 
       width: 100%; 
       border-radius: 12px; 
@@ -65,18 +62,15 @@ html_content = """<!DOCTYPE html>
     }
     svg.fantasy-map { width: 100%; height: auto; max-height: 280px; }
 
-    /* 資訊卡片內文 Grid */
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
     .info-box { background: var(--bg-color); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.8rem; }
     .info-box strong { display: block; color: var(--primary); margin-bottom: 2px; }
 
-    /* 已確認預訂 */
     .booking-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
     .booking-item:last-child { border-bottom: none; }
     .booking-info h4 { font-size: 0.95rem; font-weight: 600; }
     .booking-info p { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
 
-    /* 每日行程 */
     .day-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
     .day-tag { font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; color: #fff; }
     .day1-bg { background-color: var(--accent-day1); }
@@ -223,7 +217,7 @@ html_content = """<!DOCTYPE html>
     <div class="booking-item">
       <div class="booking-info">
         <h4>🎫 凱迪拉克山通行證：Cadillac Summit Road</h4>
-        <p>10/17 (週週六) 14:30 - 15:00 入場時段 <span class="badge-reserve">已購票成功</span></p>
+        <p>10/17 (週六) 14:30 - 15:00 入場時段 <span class="badge-reserve">已購票成功</span></p>
       </div>
     </div>
     <div class="booking-item">
@@ -289,7 +283,7 @@ html_content = """<!DOCTYPE html>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Portland+Head+Light/Red's+Eats/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 一鍵導航今日多點路線</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Portland+Head+Light/Red's+Eats/Mount+Battie+Tower/Penobscot+Narrows+Bridge/Ellsworth+LL+Bean/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 一鍵導航今日精華多點路線</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -310,7 +304,25 @@ html_content = """<!DOCTYPE html>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">16:00</div>
+          <div class="tl-time">13:45</div>
+          <div class="tl-content">🚗 <strong>沿途休息點 1</strong>：開車登上 <a class="loc-link" href="https://maps.google.com/?q=Mount+Battie+Tower+Camden+Hills" target="_blank">Camden Hills State Park (Mount Battie)</a></div>
+          <div class="tl-desc">💡 <strong>景點簡介</strong>：車輛可直達山頂！俯瞰 Camden 港口舟楫與滿山秋葉連綿景緻，設有乾淨洗手間與觀景台。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">14:45</div>
+          <div class="tl-content">🌉 <strong>沿途休息點 2</strong>：停靠 <a class="loc-link" href="https://maps.google.com/?q=Penobscot+Narrows+Bridge" target="_blank">Penobscot Narrows Bridge & Observatory</a></div>
+          <div class="tl-desc">💡 <strong>景點簡介</strong>：全球極少數帶高空觀景台的斜張橋，可俯瞰河谷紅葉全景，訪客中心設有完善公共洗手間。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">15:30</div>
+          <div class="tl-content">🛍️ <strong>沿途休息點 3</strong>：補給停靠 <a class="loc-link" href="https://maps.google.com/?q=Ellsworth+ME+LL+Bean" target="_blank">Ellsworth (L.L.Bean Outlet / 補給站)</a></div>
+          <div class="tl-desc">💡 <strong>景點簡介</strong>：進入阿卡迪亞前的最後商業重鎮，便利店、洗手間與加油站集中，適合補給零食與加滿油。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">16:30</div>
           <div class="tl-content">🏨 抵達並入住 <a class="loc-link" href="https://maps.google.com/?q=Holiday+Inn+Resort+Bar+Harbor" target="_blank">Holiday Inn Resort Bar Harbor</a></div>
           <div class="tl-desc">💡 <strong>飯店簡介</strong>：坐落於吧港海畔，房間可眺望海灣景致，提供免費停車，距離鎮中心僅 5 分鐘車程。</div>
         </div>
@@ -472,8 +484,4 @@ html_content = """<!DOCTYPE html>
   updateCountdown();
 </script>
 </body>
-</html>"""
-
-with open("index-v4.html", "w", encoding="utf-8") as f:
-    f.write(html_content)
-print("v4 generated successfully.")
+</html>
