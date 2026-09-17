@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦞 緬因秋日仙境 · 追光與龍蝦之約 🍂</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --accent-day1: #ef4444;
+      --accent-day2: #f59e0b;
+      --accent-day3: #10b981;
+      --accent-day4: #8b5cf6;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    /* 自動切換深色/夜間模式 (Dark Mode) */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --text-main: #f8fafc;
+        --text-sub: #94a3b8;
+        --primary: #3b82f6;
+        --primary-light: #1e3a8a;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 40px; }
+    .container { max-width: 600px; margin: 0 auto; padding: 16px; }
+
+    /* 主頁首頁卡片 (Hero Card) */
+    .hero-card { background: var(--card-bg); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
+    .hero-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; color: var(--text-main); }
+    .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 16px; }
+    
+    .event-badge { display: inline-block; background: var(--primary-light); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
+    .countdown-timer { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
+    .time-unit { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 10px; min-width: 54px; }
+    .time-val { font-size: 1.4rem; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
+    .time-lbl { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; }
+
+    /* 區塊標題 (Section Titles) */
+    .sec-title { font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
+
+    /* 卡片通用樣式 (Cards) */
+    .card { background: var(--card-bg); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 12px; }
+
+    /* 手繪感 SVG 地圖容器 */
+    .map-container { width: 100%; border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
+    svg.handdrawn-map { width: 100%; height: auto; max-height: 260px; }
+
+    /* 已確認預訂清單 */
+    .booking-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
+    .booking-item:last-child { border-bottom: none; }
+    .booking-info h4 { font-size: 0.95rem; font-weight: 600; }
+    .booking-info p { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
+
+    /* 每日行程手風琴面板 (Accordion Days) */
+    .day-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
+    .day-tag { font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; color: #fff; }
+    .day1-bg { background-color: var(--accent-day1); }
+    .day2-bg { background-color: var(--accent-day2); }
+    .day3-bg { background-color: var(--accent-day3); }
+    .day4-bg { background-color: var(--accent-day4); }
+
+    .route-btn { font-size: 0.75rem; color: var(--primary); text-decoration: none; border: 1px solid var(--primary); padding: 4px 8px; border-radius: 6px; background: var(--primary-light); font-weight: 600; margin-top: 8px; display: inline-block; }
+
+    /* 時間軸樣式 (Timeline) */
+    .timeline { position: relative; padding-left: 20px; margin-top: 12px; border-left: 2px solid var(--border-color); }
+    .tl-item { position: relative; margin-bottom: 14px; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot { position: absolute; left: -25px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); border: 2px solid var(--card-bg); }
+    .tl-time { font-size: 0.75rem; font-weight: 700; color: var(--text-sub); }
+    .tl-content { font-size: 0.85rem; margin-top: 2px; }
+    .badge-reserve { background: #fee2e2; color: #dc2626; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
+
+    /* 地點喚起地圖連結 */
+    .loc-link { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--primary); font-weight: 600; }
+    .loc-link:hover { color: var(--primary); }
+
+    /* 清單樣式 (Lists) */
+    .clean-list { list-style: none; }
+    .clean-list li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px; }
+    .clean-list li:last-child { border-bottom: none; }
+
+    details summary { list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    .chevron { transition: transform 0.2s; }
+    details[open] .chevron { transform: rotate(180deg); }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 1. 頂部「此刻關注」倒數卡片 -->
+  <div class="hero-card">
+    <div class="hero-title">🦞 緬因秋日仙境 · 追光與龍蝦之約 🍂</div>
+    <div class="hero-subtitle">阿卡迪亞國家公園 (Acadia National Park) 4 天 3 晚漫遊手冊</div>
+    
+    <div id="next-event-badge" class="event-badge">⏱️ 距離啟程出發 (DAL ✈️ MDW)</div>
+    
+    <div class="countdown-timer">
+      <div class="time-unit"><span id="cd-days" class="time-val">00</span><span class="time-lbl">天</span></div>
+      <div class="time-unit"><span id="cd-hours" class="time-val">00</span><span class="time-lbl">時</span></div>
+      <div class="time-unit"><span id="cd-mins" class="time-val">00</span><span class="time-lbl">分</span></div>
+      <div class="time-unit"><span id="cd-secs" class="time-val">00</span><span class="time-lbl">秒</span></div>
+    </div>
+  </div>
+
+  <!-- 2. 行程總覽地圖 (SVG 手繪質感) -->
+  <div class="sec-title">🗺️ 全域路線手繪圖 (Route Map)</div>
+  <div class="map-container">
+    <svg class="handdrawn-map" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- 海洋虛線背景 -->
+      <path d="M 0,0 L 360,0 L 360,180 L 0,180 Z" fill="none" />
+      <path d="M 220,130 Q 250,120 280,140 T 340,130" stroke="#93c5fd" stroke-width="1.5" fill="none" stroke-dasharray="4 4" />
+      
+      <!-- 第 1 及第 4 天路線 (Portland 波特蘭往返) -->
+      <path d="M 40,140 Q 90,80 140,110" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- 第 2 天路線 (Portland -> Bar Harbor) -->
+      <path d="M 140,110 Q 200,60 280,70" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- 第 3 天路線 (Acadia Park Loop 國家公園環島) -->
+      <path d="M 280,70 Q 320,60 300,100 T 280,70" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" />
+
+      <!-- 地標節點與標籤 -->
+      <!-- PWM Portland 波特蘭機場與酒店 -->
+      <circle cx="140" cy="110" r="6" fill="#ef4444" />
+      <text x="120" y="130" font-size="11" font-weight="bold" fill="currentColor">📍 Portland (N1)</text>
+
+      <!-- Bar Harbor 吧港 -->
+      <circle cx="280" cy="70" r="6" fill="#f59e0b" />
+      <text x="240" y="55" font-size="11" font-weight="bold" fill="currentColor">📍 Bar Harbor (N2/N3)</text>
+
+      <!-- Acadia / Cadillac Mtn 阿卡迪亞國家公園 -->
+      <circle cx="300" cy="95" r="5" fill="#10b981" />
+      <text x="290" y="115" font-size="10" fill="currentColor">🌲 Acadia NP</text>
+    </svg>
+  </div>
+
+  <!-- 3. 已確認預訂卡片 (自動隱去號碼) -->
+  <div class="sec-title">🎫 已確認訂單資訊 (Confirmed Reservations)</div>
+  <div class="card">
+    <div class="booking-item">
+      <div class="booking-info">
+        <h4>✈️ 去程：DAL ➔ MDW ➔ PWM</h4>
+        <p>10/15 (週四) 13:55 DAL 起飛 | 21:55 抵達 PWM</p>
+        <p>西南航空 (Southwest Airlines) WN4522 / WN2398</p>
+      </div>
+    </div>
+    <div class="booking-item">
+      <div class="booking-info">
+        <h4>✈️ 回程：PWM ➔ BWI ➔ DAL</h4>
+        <p>10/18 (週日) 17:20 PWM 起飛 | 22:55 抵達 DAL</p>
+        <p>西南航空 (Southwest Airlines) WN2676 / WN991</p>
+      </div>
+    </div>
+    <div class="booking-item">
+      <div class="booking-info">
+        <h4>🏨 N1：Portland Sheraton at Sable Oaks</h4>
+        <p>10/15 入住 | 含早餐 (Breakfast Included) | 停車 $15/晚</p>
+        <p><a class="loc-link" href="https://maps.google.com/?q=200+Sable+Oaks+Dr,+South+Portland,+ME+04106" target="_blank">📍 200 Sable Oaks Dr, South Portland, ME</a></p>
+      </div>
+    </div>
+    <div class="booking-item">
+      <div class="booking-info">
+        <h4>🏨 N2 & N3：Holiday Inn Resort Bar Harbor</h4>
+        <p>10/16 - 10/18 (連續入住 2 晚) | 不含早餐 | 免費停車</p>
+        <p><a class="loc-link" href="https://maps.google.com/?q=123+Eden+St,+Bar+Harbor,+ME+04609" target="_blank">📍 123 Eden St, Bar Harbor, ME</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 逐日詳細行程 -->
+  <div class="sec-title">🗓️ 逐日詳細行程 (Daily Itinerary)</div>
+
+  <!-- DAY 1 -->
+  <div class="card">
+    <details open>
+      <summary class="day-header">
+        <div>
+          <span class="day-tag day1-bg">DAY 1</span>
+          <strong style="margin-left: 6px;">10/15 (週四) 啟程 · 夜赴波特蘭</strong>
+        </div>
+        <span class="chevron">▼</span>
+      </summary>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+International+Jetport/Portland+Sheraton+at+Sable+Oaks" target="_blank">🗺️ 一鍵導航今日路線 (Google Maps)</a>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">13:55 (CDT)</div>
+          <div class="tl-content">✈️ 從 <a class="loc-link" href="https://maps.google.com/?q=Dallas+Love+Field" target="_blank">Dallas Love Field (DAL)</a> 起飛前往芝加哥 (MDW)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">21:55 (EDT)</div>
+          <div class="tl-content">🛬 順利降落 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">Portland (PWM) 機場</a>，辦理取車</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">22:30 (EDT)</div>
+          <div class="tl-content">🏨 入住 <a class="loc-link" href="https://maps.google.com/?q=Portland+Sheraton+at+Sable+Oaks" target="_blank">Portland Sheraton at Sable Oaks</a>，充分休息</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="card">
+    <details open>
+      <summary class="day-header">
+        <div>
+          <span class="day-tag day2-bg">DAY 2</span>
+          <strong style="margin-left: 6px;">10/16 (週五) 沿海觀景 · 直奔阿卡迪亞</strong>
+        </div>
+        <span class="chevron">▼</span>
+      </summary>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Portland+Head+Light/Red's+Eats/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 一鍵導航今日多點路線</a>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">08:30</div>
+          <div class="tl-content">🍳 享用飯店早餐後辦理退房</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">09:15</div>
+          <div class="tl-content">📸 參觀波特蘭地標燈塔 <a class="loc-link" href="https://maps.google.com/?q=Portland+Head+Light" target="_blank">Portland Head Light</a></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">12:30</div>
+          <div class="tl-content">🦞 沿 US-1 公路前行，途經 Wiscasset 享用名店 <a class="loc-link" href="https://maps.google.com/?q=Red's+Eats" target="_blank">Red's Eats</a> 龍蝦堡</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">16:00</div>
+          <div class="tl-content">🏨 抵達並入住 <a class="loc-link" href="https://maps.google.com/?q=Holiday+Inn+Resort+Bar+Harbor" target="_blank">Holiday Inn Resort Bar Harbor</a></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">18:00</div>
+          <div class="tl-content">🍽️ 吧港 (Bar Harbor) 鎮上漫步並享用美味晚餐</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="card">
+    <details open>
+      <summary class="day-header">
+        <div>
+          <span class="day-tag day3-bg">DAY 3</span>
+          <strong style="margin-left: 6px;">10/17 (週六) 凱迪拉克山追光 · 國家公園深度遊</strong>
+        </div>
+        <span class="chevron">▼</span>
+      </summary>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Cadillac+Mountain/Sand+Beach/Thunder+Hole/Jordan+Pond+House" target="_blank">🗺️ 一鍵導航今日多點路線</a>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">06:15</div>
+          <div class="tl-content">🌅 驅車登上 <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Mountain" target="_blank">Cadillac Mountain</a> 迎接美東第一道晨光 <span class="badge-reserve">需提前預約</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">09:00</div>
+          <div class="tl-content">🏖️ 漫步 Park Loop Road，打卡 <a class="loc-link" href="https://maps.google.com/?q=Sand+Beach+Acadia" target="_blank">Sand Beach</a> 與 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> 觀浪</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">12:00</div>
+          <div class="tl-content">☕ <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+House" target="_blank">Jordan Pond House</a> 享用經典 Popover 點心與下午茶 <span class="badge-reserve">建議預約</span></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">14:00</div>
+          <div class="tl-content">🥾 沿 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+Path" target="_blank">Jordan Pond Path</a> 輕鬆環湖散步 (約 3.3 英哩 / 5.3 公里)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">17:30</div>
+          <div class="tl-content">🦞 返回 Bar Harbor 鎮上，享用鮮美清蒸全龍蝦大餐</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="card">
+    <details open>
+      <summary class="day-header">
+        <div>
+          <span class="day-tag day4-bg">DAY 4</span>
+          <strong style="margin-left: 6px;">10/18 (週日) 吧港晨漫 · 滿載秋色返程</strong>
+        </div>
+        <span class="chevron">▼</span>
+      </summary>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Bass+Harbor+Head+Light+Station/Portland+International+Jetport" target="_blank">🗺️ 一鍵導航今日多點路線</a>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">08:30</div>
+          <div class="tl-content">🧳 辦理退房，前往探訪西南角 <a class="loc-link" href="https://maps.google.com/?q=Bass+Harbor+Head+Light+Station" target="_blank">Bass Harbor Head Light</a> 燈塔</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">11:30</div>
+          <div class="tl-content">⚠️ 告別阿卡迪亞，啟程驅車返回波特蘭 (車程約 3.5 小時，務必預留緩衝)</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">15:30</div>
+          <div class="tl-content">⛽ 抵達 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場周邊加滿油</a>，完成還車手續</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">17:20 (EDT)</div>
+          <div class="tl-content">✈️ PWM 起飛 (WN2676) 經 BWI 返回 DAL (22:55 抵達)</div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- 5. 待辦清單 (純文字靜態清單) -->
+  <div class="sec-title">📋 出行待辦清單 (To-Do List)</div>
+  <div class="card">
+    <ul class="clean-list">
+      <li>📌 提前 2 天 (10/15 10:00 AM) 在 Recreation.gov 搶購 Cadillac Mountain 車輛通行預約</li>
+      <li>📌 購買 Acadia National Park 週票 (Park Pass)</li>
+      <li>📌 檢查並攜帶保暖防風外套、舒適登山鞋與手電筒</li>
+      <li>📌 下載 Acadia 區域的 Google Maps 離線地圖 (部分山區訊號較弱)</li>
+    </ul>
+  </div>
+
+  <!-- 6. 實用貼士 (Travel Tips) -->
+  <div class="sec-title">💡 實用貼士 (Practical Tips)</div>
+  <div class="card">
+    <ul class="clean-list">
+      <li>🌲 <strong>訊號提示 (Signal)</strong>：Park Loop Road 部分山谷路段完全無行動訊號，請務必依賴離線地圖導航。</li>
+      <li>🌅 <strong>日出保暖 (Warmth)</strong>：10 月中旬 Cadillac 山頂日出體感溫度常低於 0°C，風力強勁，請準備毛帽與厚外套。</li>
+      <li>⛽ <strong>加油規劃 (Gas)</strong>：進入 Acadia 園區前，請先在 Ellsworth 或 Bar Harbor 鎮上把油加滿。</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  // 出發時間錨點 (帶時區 2026-10-15T13:55:00-05:00 DAL 時間)
+  const targetDate = new Date('2026-10-15T13:55:00-05:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById('next-event-badge').innerText = "🎉 旅程已正式開啟！祝您玩得愉快！";
+      document.getElementById('cd-days').innerText = "00";
+      document.getElementById('cd-hours').innerText = "00";
+      document.getElementById('cd-mins').innerText = "00";
+      document.getElementById('cd-secs').innerText = "00";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+    document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
+    document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
+  }
+
+  // 每秒更新倒數計時
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+</body>
+</html>
