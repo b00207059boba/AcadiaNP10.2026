@@ -20,7 +20,6 @@
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
 
-    /* 自動切換深色/夜間模式 (Dark Mode) */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg-color: #0f172a;
@@ -38,7 +37,6 @@
     body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 40px; }
     .container { max-width: 600px; margin: 0 auto; padding: 16px; }
 
-    /* 主頁首頁卡片 (Hero Card) */
     .hero-card { background: var(--card-bg); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
     .hero-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; color: var(--text-main); }
     .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 16px; }
@@ -49,23 +47,17 @@
     .time-val { font-size: 1.4rem; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
     .time-lbl { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; }
 
-    /* 區塊標題 (Section Titles) */
     .sec-title { font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
-
-    /* 卡片通用樣式 (Cards) */
     .card { background: var(--card-bg); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 12px; }
 
-    /* 手繪感 SVG 地圖容器 */
     .map-container { width: 100%; border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
     svg.handdrawn-map { width: 100%; height: auto; max-height: 260px; }
 
-    /* 已確認預訂清單 */
     .booking-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
     .booking-item:last-child { border-bottom: none; }
     .booking-info h4 { font-size: 0.95rem; font-weight: 600; }
     .booking-info p { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
 
-    /* 每日行程手風琴面板 (Accordion Days) */
     .day-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
     .day-tag { font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; color: #fff; }
     .day1-bg { background-color: var(--accent-day1); }
@@ -75,20 +67,17 @@
 
     .route-btn { font-size: 0.75rem; color: var(--primary); text-decoration: none; border: 1px solid var(--primary); padding: 4px 8px; border-radius: 6px; background: var(--primary-light); font-weight: 600; margin-top: 8px; display: inline-block; }
 
-    /* 時間軸樣式 (Timeline) */
     .timeline { position: relative; padding-left: 20px; margin-top: 12px; border-left: 2px solid var(--border-color); }
     .tl-item { position: relative; margin-bottom: 14px; }
     .tl-item:last-child { margin-bottom: 0; }
     .tl-dot { position: absolute; left: -25px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); border: 2px solid var(--card-bg); }
     .tl-time { font-size: 0.75rem; font-weight: 700; color: var(--text-sub); }
     .tl-content { font-size: 0.85rem; margin-top: 2px; }
-    .badge-reserve { background: #fee2e2; color: #dc2626; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
+    .badge-reserve { background: #dcfce7; color: #166534; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
 
-    /* 地點喚起地圖連結 */
     .loc-link { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--primary); font-weight: 600; }
     .loc-link:hover { color: var(--primary); }
 
-    /* 清單樣式 (Lists) */
     .clean-list { list-style: none; }
     .clean-list li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 8px; }
     .clean-list li:last-child { border-bottom: none; }
@@ -103,7 +92,7 @@
 
 <div class="container">
 
-  <!-- 1. 頂部「此刻關注」倒數卡片 -->
+  <!-- 1. 頂部倒數卡片 -->
   <div class="hero-card">
     <div class="hero-title">🦞 緬因秋日仙境 · 追光與龍蝦之約 🍂</div>
     <div class="hero-subtitle">阿卡迪亞國家公園 (Acadia National Park) 4 天 3 晚漫遊手冊</div>
@@ -118,37 +107,28 @@
     </div>
   </div>
 
-  <!-- 2. 行程總覽地圖 (SVG 手繪質感) -->
+  <!-- 2. 行程總覽地圖 -->
   <div class="sec-title">🗺️ 全域路線手繪圖 (Route Map)</div>
   <div class="map-container">
     <svg class="handdrawn-map" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
-      <!-- 海洋虛線背景 -->
       <path d="M 0,0 L 360,0 L 360,180 L 0,180 Z" fill="none" />
       <path d="M 220,130 Q 250,120 280,140 T 340,130" stroke="#93c5fd" stroke-width="1.5" fill="none" stroke-dasharray="4 4" />
-      
-      <!-- 第 1 及第 4 天路線 (Portland 波特蘭往返) -->
       <path d="M 40,140 Q 90,80 140,110" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" />
-      <!-- 第 2 天路線 (Portland -> Bar Harbor) -->
       <path d="M 140,110 Q 200,60 280,70" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" />
-      <!-- 第 3 天路線 (Acadia Park Loop 國家公園環島) -->
       <path d="M 280,70 Q 320,60 300,100 T 280,70" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" />
 
-      <!-- 地標節點與標籤 -->
-      <!-- PWM Portland 波特蘭機場與酒店 -->
       <circle cx="140" cy="110" r="6" fill="#ef4444" />
       <text x="120" y="130" font-size="11" font-weight="bold" fill="currentColor">📍 Portland (N1)</text>
 
-      <!-- Bar Harbor 吧港 -->
       <circle cx="280" cy="70" r="6" fill="#f59e0b" />
       <text x="240" y="55" font-size="11" font-weight="bold" fill="currentColor">📍 Bar Harbor (N2/N3)</text>
 
-      <!-- Acadia / Cadillac Mtn 阿卡迪亞國家公園 -->
       <circle cx="300" cy="95" r="5" fill="#10b981" />
       <text x="290" y="115" font-size="10" fill="currentColor">🌲 Acadia NP</text>
     </svg>
   </div>
 
-  <!-- 3. 已確認預訂卡片 (自動隱去號碼) -->
+  <!-- 3. 已確認預訂卡片 -->
   <div class="sec-title">🎫 已確認訂單資訊 (Confirmed Reservations)</div>
   <div class="card">
     <div class="booking-item">
@@ -167,8 +147,14 @@
     </div>
     <div class="booking-item">
       <div class="booking-info">
+        <h4>🎫 凱迪拉克山通行證：Cadillac Summit Road</h4>
+        <p>10/17 (週六) 14:30 - 15:00 入場時段 <span class="badge-reserve">已購票成功</span></p>
+      </div>
+    </div>
+    <div class="booking-item">
+      <div class="booking-info">
         <h4>🏨 N1：Portland Sheraton at Sable Oaks</h4>
-        <p>10/15 入住 | 含早餐 (Breakfast Included) | 停車 $15/晚</p>
+        <p>10/15 入住 | 含早餐 | 停車 $15/晚</p>
         <p><a class="loc-link" href="https://maps.google.com/?q=200+Sable+Oaks+Dr,+South+Portland,+ME+04106" target="_blank">📍 200 Sable Oaks Dr, South Portland, ME</a></p>
       </div>
     </div>
@@ -262,36 +248,36 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day3-bg">DAY 3</span>
-          <strong style="margin-left: 6px;">10/17 (週六) 凱迪拉克山登頂 · Park Loop 經典巡禮</strong>
+          <strong style="margin-left: 6px;">10/17 (週六) Park Loop 巡禮 · 午後凱迪拉克山賞秋</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Schooner+Head+Overlook/Sand+Beach/Thunder+Hole/Otter+Cliff/Cadillac+Mountain/Bubble+Rock/Jordan+Pond+House" target="_blank">🗺️ 一鍵導航今日精華多點路線</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Ocean+Path+Trailhead/Thunder+Hole/Bubbles+Trailhead/Jordan+Pond+House/Cadillac+Summit+Rd" target="_blank">🗺️ 一鍵導航今日必走 Trail 全覽路線</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">08:30</div>
-          <div class="tl-content">🌊 進入 Park Loop Road，遠眺 <a class="loc-link" href="https://maps.google.com/?q=Schooner+Head+Overlook+Acadia" target="_blank">Schooner Head Overlook</a> 海景</div>
+          <div class="tl-content">🌊 進入 Park Loop Road，遠眺 <a class="loc-link" href="https://maps.google.com/?q=Schooner+Head+Overlook" target="_blank">Schooner Head Overlook</a></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">09:15</div>
-          <div class="tl-content">🏖️ 漫步 <a class="loc-link" href="https://maps.google.com/?q=Sand+Beach+Acadia" target="_blank">Sand Beach</a> 沙灘，沿 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path+Trailhead+Acadia" target="_blank">Ocean Path</a> 聽濤觀浪至 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> 與 <a class="loc-link" href="https://maps.google.com/?q=Otter+Cliff" target="_blank">Otter Cliff</a> 懸崖</div>
+          <div class="tl-content">🥾 <strong>Trail 1</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path+Trailhead" target="_blank">Ocean Path Trailhead</a>，沿海岸線漫步至 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> 與 <a class="loc-link" href="https://maps.google.com/?q=Otter+Cliff" target="_blank">Otter Cliff</a></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">11:30</div>
-          <div class="tl-content">🏔️ 驅車登上 <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Mountain" target="_blank">Cadillac Mountain</a> 俯瞰海灣秋色 <span class="badge-reserve">已預約 11:30AM</span></div>
+          <div class="tl-time">11:10</div>
+          <div class="tl-content">🥾 <strong>Trail 2</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Bubbles+Trailhead" target="_blank">Bubbles Trailhead</a>，健行至 Bubble Rock 俯瞰秋葉海灣</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">13:00</div>
-          <div class="tl-content">🪨 健行探訪著名的冰川懸空巨石 <a class="loc-link" href="https://maps.google.com/?q=Bubble+Rock+Trailhead" target="_blank">Bubble Rock (The Bubbles)</a></div>
+          <div class="tl-time">12:15</div>
+          <div class="tl-content">🥾 <strong>Trail 3</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+House" target="_blank">Jordan Pond House</a> 享用 Popover 午餐，並順走 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+Path" target="_blank">Jordan Pond Path</a> 環湖步道</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">14:30</div>
-          <div class="tl-content">☕ <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+House" target="_blank">Jordan Pond House</a> 享用經典 Popover 點心，並沿 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+Path" target="_blank">Jordan Pond Path</a> 環湖散步</div>
+          <div class="tl-content">🏔️ 驅車登上 <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Summit+Rd" target="_blank">Cadillac Mountain</a> 俯瞰全園紅葉 <span class="badge-reserve">已預約 14:30-15:00</span></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
@@ -338,7 +324,7 @@
     </details>
   </div>
 
-  <!-- 5. 待辦清單 (純文字靜態清單) -->
+  <!-- 5. 待辦清單 -->
   <div class="sec-title">📋 出行待辦清單 (To-Do List)</div>
   <div class="card">
     <ul class="clean-list">
@@ -348,7 +334,7 @@
     </ul>
   </div>
 
-  <!-- 6. 實用貼士 (Travel Tips) -->
+  <!-- 6. 實用貼士 -->
   <div class="sec-title">💡 實用貼士 (Practical Tips)</div>
   <div class="card">
     <ul class="clean-list">
@@ -361,7 +347,6 @@
 </div>
 
 <script>
-  // 出發時間錨點 (帶時區 2026-10-15T13:55:00-05:00 DAL 時間)
   const targetDate = new Date('2026-10-15T13:55:00-05:00').getTime();
 
   function updateCountdown() {
@@ -388,7 +373,6 @@
     document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
   }
 
-  // 每秒更新倒數計時
   setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
