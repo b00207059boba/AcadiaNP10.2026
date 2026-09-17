@@ -20,6 +20,7 @@
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     }
 
+    /* 自動切換深色/夜間模式 (Dark Mode) */
     @media (prefers-color-scheme: dark) {
       :root {
         --bg-color: #0f172a;
@@ -33,10 +34,11 @@
       }
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Georgia, serif; }
     body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 40px; }
     .container { max-width: 600px; margin: 0 auto; padding: 16px; }
 
+    /* 頂部 Hero 卡片 */
     .hero-card { background: var(--card-bg); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
     .hero-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; color: var(--text-main); }
     .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 16px; }
@@ -50,14 +52,31 @@
     .sec-title { font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
     .card { background: var(--card-bg); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 12px; }
 
-    .map-container { width: 100%; border-radius: 12px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
-    svg.handdrawn-map { width: 100%; height: auto; max-height: 260px; }
+    /* 魔戒風中世紀羊皮紙地圖容器 (Parchment Style Map) */
+    .map-container { 
+      width: 100%; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      background: #f4e8c1; 
+      border: 2px solid #8c6d3f; 
+      margin-bottom: 16px; 
+      text-align: center; 
+      box-shadow: inset 0 0 20px rgba(139, 69, 19, 0.2), var(--shadow);
+    }
+    svg.fantasy-map { width: 100%; height: auto; max-height: 280px; }
 
+    /* 資訊卡片內文 Grid */
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    .info-box { background: var(--bg-color); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.8rem; }
+    .info-box strong { display: block; color: var(--primary); margin-bottom: 2px; }
+
+    /* 已確認預訂 */
     .booking-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
     .booking-item:last-child { border-bottom: none; }
     .booking-info h4 { font-size: 0.95rem; font-weight: 600; }
     .booking-info p { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
 
+    /* 每日行程 */
     .day-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; user-select: none; }
     .day-tag { font-size: 0.8rem; font-weight: 700; padding: 2px 8px; border-radius: 6px; color: #fff; }
     .day1-bg { background-color: var(--accent-day1); }
@@ -74,6 +93,7 @@
     .tl-time { font-size: 0.75rem; font-weight: 700; color: var(--text-sub); }
     .tl-content { font-size: 0.85rem; margin-top: 2px; }
     .badge-reserve { background: #dcfce7; color: #166534; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
+    .badge-tip { background: #fef3c7; color: #92400e; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
 
     .loc-link { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--primary); font-weight: 600; }
     .loc-link:hover { color: var(--primary); }
@@ -107,28 +127,96 @@
     </div>
   </div>
 
-  <!-- 2. 行程總覽地圖 -->
-  <div class="sec-title">🗺️ 全域路線手繪圖 (Route Map)</div>
+  <!-- 2. 中世紀魔戒風手繪古地圖 (Fantasy Vintage Route Map) -->
+  <div class="sec-title">🗺️ 中世紀風格冒險地圖 (Fantasy Map)</div>
   <div class="map-container">
-    <svg class="handdrawn-map" viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 0,0 L 360,0 L 360,180 L 0,180 Z" fill="none" />
-      <path d="M 220,130 Q 250,120 280,140 T 340,130" stroke="#93c5fd" stroke-width="1.5" fill="none" stroke-dasharray="4 4" />
-      <path d="M 40,140 Q 90,80 140,110" stroke="#ef4444" stroke-width="3" fill="none" stroke-linecap="round" />
-      <path d="M 140,110 Q 200,60 280,70" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" />
-      <path d="M 280,70 Q 320,60 300,100 T 280,70" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round" />
+    <svg class="fantasy-map" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <style>
+          .map-title { font-family: 'Georgia', serif; font-size: 12px; font-weight: bold; fill: #5c3a21; }
+          .map-label { font-family: 'Georgia', serif; font-size: 9px; font-weight: bold; fill: #3d2614; }
+          .map-day-tag { font-family: 'Georgia', serif; font-size: 8px; font-weight: bold; fill: #7f1d1d; }
+          .sea-label { font-family: 'Georgia', serif; font-size: 10px; font-style: italic; fill: #8b9b87; }
+        </style>
+      </defs>
 
-      <circle cx="140" cy="110" r="6" fill="#ef4444" />
-      <text x="120" y="130" font-size="11" font-weight="bold" fill="currentColor">📍 Portland (N1)</text>
+      <!-- 羊皮紙底紋邊框 -->
+      <rect x="5" y="5" width="370" height="190" fill="none" stroke="#a08253" stroke-width="1.5" stroke-dasharray="8 4" />
 
-      <circle cx="280" cy="70" r="6" fill="#f59e0b" />
-      <text x="240" y="55" font-size="11" font-weight="bold" fill="currentColor">📍 Bar Harbor (N2/N3)</text>
+      <!-- 山脈裝飾 (Middle-earth Style Mountains) -->
+      <path d="M 190,45 L 196,35 L 202,45 M 198,45 L 204,32 L 210,45 M 206,45 L 212,37 L 218,45" stroke="#7a5c37" stroke-width="1.2" fill="none" />
+      <path d="M 280,105 L 286,95 L 292,105 M 288,105 L 294,92 L 300,105" stroke="#7a5c37" stroke-width="1.2" fill="none" />
 
-      <circle cx="300" cy="95" r="5" fill="#10b981" />
-      <text x="290" y="115" font-size="10" fill="currentColor">🌲 Acadia NP</text>
+      <!-- 海洋波浪線 -->
+      <path d="M 310,150 C 320,145 330,155 340,150" stroke="#8b9b87" stroke-width="1" fill="none" />
+      <path d="M 320,165 C 330,160 340,170 350,165" stroke="#8b9b87" stroke-width="1" fill="none" />
+      <text x="315" y="140" class="sea-label">Atlantic Ocean</text>
+
+      <!-- 虛線軌跡 (Dotted Trail Paths) -->
+      <!-- Day 1 Path (Red): DAL -> PWM -->
+      <path d="M 35,160 Q 75,100 115,135" stroke="#dc2626" stroke-width="2.2" stroke-dasharray="4 3" fill="none" />
+      <!-- Day 2 Path (Amber): PWM -> Red's Eats -> Bar Harbor -->
+      <path d="M 115,135 Q 165,85 245,85" stroke="#d97706" stroke-width="2.2" stroke-dasharray="4 3" fill="none" />
+      <!-- Day 3 Path (Emerald): Park Loop Trail -->
+      <path d="M 245,85 Q 315,70 305,120 T 245,85" stroke="#059669" stroke-width="2.2" stroke-dasharray="4 3" fill="none" />
+      <!-- Day 4 Path (Purple): Bar Harbor -> Bass Harbor -> PWM -->
+      <path d="M 245,85 Q 230,145 115,135" stroke="#7c3aed" stroke-width="2.2" stroke-dasharray="4 3" fill="none" />
+
+      <!-- 路線 Day 標註 -->
+      <text x="60" y="120" class="map-day-tag">⚔️ DAY 1</text>
+      <text x="175" y="75" class="map-day-tag">🏰 DAY 2</text>
+      <text x="290" y="75" class="map-day-tag">🌲 DAY 3</text>
+      <text x="170" y="140" class="map-day-tag">⛵ DAY 4</text>
+
+      <!-- 主要節點城堡/圖標與地名 -->
+      <!-- Dallas / Flight Start -->
+      <circle cx="35" cy="160" r="4" fill="#dc2626" />
+      <text x="15" y="178" class="map-label">🛫 Dallas (DAL)</text>
+
+      <!-- Portland (N1) -->
+      <circle cx="115" cy="135" r="5" fill="#7a5c37" stroke="#3d2614" stroke-width="1.5" />
+      <text x="80" y="152" class="map-label">⚓ Portland (N1)</text>
+
+      <!-- Red's Eats (Wiscasset) -->
+      <circle cx="180" cy="100" r="3" fill="#d97706" />
+      <text x="160" y="113" class="map-label" font-size="8">🦞 Red's Eats</text>
+
+      <!-- Bar Harbor (N2/N3) -->
+      <circle cx="245" cy="85" r="5" fill="#7a5c37" stroke="#3d2614" stroke-width="1.5" />
+      <text x="220" y="70" class="map-label">🏰 Bar Harbor (N2/N3)</text>
+
+      <!-- Acadia National Park & Cadillac Mountain -->
+      <circle cx="295" cy="105" r="4" fill="#059669" />
+      <text x="290" y="122" class="map-label">🏔️ Acadia NP</text>
+
+      <!-- 地圖指南針 Compass Rose -->
+      <g transform="translate(340, 35)">
+        <polygon points="0,-12 3,-3 12,0 3,3 0,12 -3,3 -12,0 -3,-3" fill="#8c6d3f" />
+        <text x="-3" y="-14" font-size="8" font-weight="bold" fill="#5c3a21">N</text>
+      </g>
     </svg>
   </div>
 
-  <!-- 3. 已確認預訂卡片 -->
+  <!-- 3. 日照、潮汐與 Thunder Hole 精準指南 -->
+  <div class="sec-title">🌊 每日日照、潮汐與觀浪指南</div>
+  <div class="card">
+    <div class="info-grid">
+      <div class="info-box">
+        <strong>🌅 10/17 日出日落</strong>
+        日出：6:51 AM<br>日落：17:15 PM
+      </div>
+      <div class="info-box">
+        <strong>🌊 10/17 潮汐時刻</strong>
+        滿潮 (High)：11:42 AM<br>乾潮 (Low)：17:54 PM
+      </div>
+    </div>
+    <div style="margin-top: 10px; font-size: 0.82rem; line-height: 1.5; background: #fffbeb; padding: 10px; border-radius: 8px; border: 1px solid #fef3c7; color: #78350f;">
+      ⚡ <strong>Thunder Hole 最佳觀潮時間段</strong>：<br>
+      強烈建議於 <strong>10:00 AM – 10:45 AM</strong> 抵達！雷鳴洞在<strong>滿潮前 1 至 2 小時</strong>配合東南向海浪時，海水擠壓岩洞噴發的巨響與水柱最為壯觀！
+    </div>
+  </div>
+
+  <!-- 4. 已確認預訂卡片 -->
   <div class="sec-title">🎫 已確認訂單資訊 (Confirmed Reservations)</div>
   <div class="card">
     <div class="booking-item">
@@ -167,7 +255,7 @@
     </div>
   </div>
 
-  <!-- 4. 逐日詳細行程 -->
+  <!-- 5. 逐日詳細行程 -->
   <div class="sec-title">🗓️ 逐日詳細行程 (Daily Itinerary)</div>
 
   <!-- DAY 1 -->
@@ -261,17 +349,17 @@
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">09:15</div>
-          <div class="tl-content">🥾 <strong>Trail 1</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path+Trailhead" target="_blank">Ocean Path Trailhead</a>，沿海岸線漫步至 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> 與 <a class="loc-link" href="https://maps.google.com/?q=Otter+Cliff" target="_blank">Otter Cliff</a></div>
+          <div class="tl-time">09:15 - 11:00</div>
+          <div class="tl-content">🥾 <strong>Trail 1</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path+Trailhead" target="_blank">Ocean Path Trailhead</a>，漫步至 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> <span class="badge-tip">10:00-10:45 最佳觀潮</span> 與 <a class="loc-link" href="https://maps.google.com/?q=Otter+Cliff" target="_blank">Otter Cliff</a></div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">11:10</div>
+          <div class="tl-time">11:10 - 12:10</div>
           <div class="tl-content">🥾 <strong>Trail 2</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Bubbles+Trailhead" target="_blank">Bubbles Trailhead</a>，健行至 Bubble Rock 俯瞰秋葉海灣</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">12:15</div>
+          <div class="tl-time">12:15 - 14:15</div>
           <div class="tl-content">🥾 <strong>Trail 3</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+House" target="_blank">Jordan Pond House</a> 享用 Popover 午餐，並順走 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+Path" target="_blank">Jordan Pond Path</a> 環湖步道</div>
         </div>
         <div class="tl-item">
@@ -324,7 +412,7 @@
     </details>
   </div>
 
-  <!-- 5. 待辦清單 -->
+  <!-- 6. 待辦清單 -->
   <div class="sec-title">📋 出行待辦清單 (To-Do List)</div>
   <div class="card">
     <ul class="clean-list">
@@ -334,7 +422,7 @@
     </ul>
   </div>
 
-  <!-- 6. 實用貼士 -->
+  <!-- 7. 實用貼士 -->
   <div class="sec-title">💡 實用貼士 (Practical Tips)</div>
   <div class="card">
     <ul class="clean-list">
