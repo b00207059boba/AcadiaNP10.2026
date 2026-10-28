@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🦞 緬因秋日仙境 · 追光與龍蝦之約 🍂</title>
+  <title>🦞 緬因秋日仙境 · 阿卡迪亞實戰回憶與攻略 🍂</title>
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -39,22 +39,11 @@
 
     .hero-card { background: var(--card-bg); border-radius: 16px; padding: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 16px; text-align: center; }
     .hero-title { font-size: 1.35rem; font-weight: 800; margin-bottom: 4px; color: var(--text-main); }
-    .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 16px; }
-    
-    .event-badge { display: inline-block; background: var(--primary-light); color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; }
-    .countdown-timer { display: flex; justify-content: center; gap: 8px; margin-top: 8px; }
-    .time-unit { background: var(--bg-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 8px 10px; min-width: 54px; }
-    .time-val { font-size: 1.4rem; font-weight: 700; color: var(--primary); display: block; line-height: 1.2; }
-    .time-lbl { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; }
+    .hero-subtitle { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 12px; }
+    .welcome-badge { display: inline-block; background: #dcfce7; color: #166534; padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; }
 
     .sec-title { font-size: 1.1rem; font-weight: 700; margin: 24px 0 12px 0; display: flex; align-items: center; gap: 8px; }
     .card { background: var(--card-bg); border-radius: 12px; padding: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 12px; }
-
-    .map-img { width: 100%; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: var(--shadow); display: block; }
-
-    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
-    .info-box { background: var(--bg-color); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.8rem; }
-    .info-box strong { display: block; color: var(--primary); margin-bottom: 2px; }
 
     .booking-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px dashed var(--border-color); }
     .booking-item:last-child { border-bottom: none; }
@@ -75,20 +64,19 @@
     .tl-item:last-child { margin-bottom: 0; }
     .tl-dot { position: absolute; left: -25px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); border: 2px solid var(--card-bg); }
     .tl-time { font-size: 0.75rem; font-weight: 700; color: var(--text-sub); }
-    .tl-content { font-size: 0.85rem; margin-top: 2px; }
-    .tl-desc { font-size: 0.78rem; color: var(--text-sub); margin-top: 3px; line-height: 1.4; }
+    .tl-content { font-size: 0.85rem; margin-top: 2px; font-weight: 600; }
+    .tl-desc { font-size: 0.8rem; color: var(--text-sub); margin-top: 3px; line-height: 1.5; }
     .food-dish { color: #b91c1c; font-weight: 600; }
     
-    .badge-reserve { background: #dcfce7; color: #166534; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
-    .badge-tip { background: #fef3c7; color: #92400e; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
-    .badge-warn { background: #fee2e2; color: #991b1b; font-size: 0.7rem; padding: 1px 5px; border-radius: 4px; margin-left: 4px; font-weight: 600; }
+    .badge-star { background: #fef3c7; color: #92400e; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; margin-left: 4px; font-weight: 700; }
+    .badge-top { background: #fee2e2; color: #991b1b; font-size: 0.7rem; padding: 2px 6px; border-radius: 4px; margin-left: 4px; font-weight: 700; }
 
     .loc-link { color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--primary); font-weight: 600; }
     .loc-link:hover { color: var(--primary); }
 
-    .clean-list { list-style: none; }
-    .clean-list li { font-size: 0.85rem; padding: 8px 0; border-bottom: 1px solid var(--border-color); }
-    .clean-list li:last-child { border-bottom: none; }
+    .next-time-list { list-style: none; }
+    .next-time-list li { font-size: 0.85rem; padding: 8px 12px; border-bottom: 1px solid var(--border-color); background: #fefce8; border-radius: 8px; margin-bottom: 8px; border: 1px solid #fef08a; color: #854d0e; }
+    .next-time-list li:last-child { margin-bottom: 0; }
 
     details summary { list-style: none; }
     details summary::-webkit-details-marker { display: none; }
@@ -100,111 +88,55 @@
 
 <div class="container">
 
-  <!-- 1. 頂部倒數卡片 -->
+  <!-- 1. 頂部歡迎卡片 -->
   <div class="hero-card">
-    <div class="hero-title">🦞 緬因秋日仙境 · 追光與龍蝦之約 🍂</div>
-    <div class="hero-subtitle">阿卡迪亞國家公園 (Acadia National Park) 4 天 3 晚漫遊手冊</div>
-    
-    <div id="next-event-badge" class="event-badge">⏱️ 距離啟程出發 (DAL ✈️ MDW)</div>
-    
-    <div class="countdown-timer">
-      <div class="time-unit"><span id="cd-days" class="time-val">00</span><span class="time-lbl">天</span></div>
-      <div class="time-unit"><span id="cd-hours" class="time-val">00</span><span class="time-lbl">時</span></div>
-      <div class="time-unit"><span id="cd-mins" class="time-val">00</span><span class="time-lbl">分</span></div>
-      <div class="time-unit"><span id="cd-secs" class="time-val">00</span><span class="time-lbl">秒</span></div>
-    </div>
+    <div class="hero-title">🦞 緬因秋日仙境 · 阿卡迪亞旅程紀念 🍂</div>
+    <div class="hero-subtitle">Acadia National Park 4 天 3 晚真實行程紀錄與指南</div>
+    <div class="welcome-badge">🎉 旅程順利圓滿完成！</div>
   </div>
 
-  <!-- 2. 旅行路線攻略地圖插畫 -->
-  <div class="sec-title">🗺️ 旅行路線攻略</div>
-  <div class="card" style="padding: 0; overflow: hidden; border-radius: 12px;">
-    <img src="watermarked_img_5945233973196231513.jpg" alt="阿卡迪亞國家公園 4天3夜 旅行路線攻略插畫" class="map-img">
-  </div>
-
-  <!-- 3. 出行待辦清單 -->
-  <div class="sec-title">📋 出行待辦清單 (To-Do List)</div>
+  <!-- 2. 留給下次區塊 -->
+  <div class="sec-title">🎯 沒玩到，留給下次 (Bucket List for Next Time)</div>
   <div class="card">
-    <ul class="clean-list">
-      <li>
-        📌 <strong>預搶 Cadillac Mountain 車輛通行證 (Summit Vehicle Pass)</strong>
-        <div style="font-size: 0.78rem; color: var(--text-sub); margin-top: 4px; line-height: 1.4;">
-          👉 <strong>放票機制</strong>：剩餘 70% 的通行證將於<strong>使用前 2 天 (48小時) 美東時間 10:00 AM</strong> 於 Recreation.gov 釋出。<br>
-          ⏰ <strong>10/17 (週六) 日出/日落票放票時間</strong>：<strong>10/15 (週四) 10:00 AM EDT (09:00 AM CDT)</strong><br>
-          ⏰ <strong>10/18 (週日) 日出/日落票放票時間</strong>：<strong>10/16 (週五) 10:00 AM EDT (09:00 AM CDT)</strong>
-        </div>
-      </li>
-      <li>📌 購買 Acadia National Park 週票 (Park Pass)</li>
-      <li>📌 檢查並攜帶保暖防風外套、舒適登山鞋與手電筒</li>
-      <li>📌 下載 Acadia 區域的 Google Maps 離線地圖</li>
+    <ul class="next-time-list">
+      <li>🦪 <strong>Eventide Oyster Co.</strong>：這次排隊要等 1 小時，留待下次提早預約或避開尖峰品嚐！</li>
+      <li>🌅 <strong>Cadillac Mountain 日出</strong>：日落角度與體感稍遜，下次一定要鎖定第一道曙光的震撼角度！</li>
+      <li>🌊 <strong>漲潮時的 Thunder Hole</strong>：體驗大浪擠壓岩洞噴發的雷鳴奇觀。</li>
+      <li>🏝️ <strong>Bar Island 潮汐陸連島步行</strong>：趁著乾潮退去，踏上天然沙石步道徒步過海。</li>
     </ul>
   </div>
 
-  <!-- 4. 每日日照、潮汐與潮汐景點指南 -->
-  <div class="sec-title">🌊 每日日照、潮汐與潮汐景點指南</div>
-  <div class="card">
-    <div class="info-grid">
-      <div class="info-box">
-        <strong>🌅 10/16 (週五) 日照與潮汐</strong>
-        日出：6:50 AM | 日落：17:17 PM<br>
-        乾潮：17:15 PM<br>
-        <span style="color: var(--primary); font-weight: 600;">適合：Bar Island 跨海步道</span>
-      </div>
-      <div class="info-box">
-        <strong>🌊 10/17 (週六) 日照與潮汐</strong>
-        日出：6:51 AM | 日落：17:15 PM<br>
-        滿潮：11:42 AM<br>
-        <span style="color: var(--primary); font-weight: 600;">適合：Thunder Hole 觀潮</span>
-      </div>
-    </div>
-    <div style="margin-top: 10px; font-size: 0.82rem; line-height: 1.5; background: #fffbeb; padding: 10px; border-radius: 8px; border: 1px solid #fef3c7; color: #78350f;">
-      ⚡ <strong>最佳潮汐觀賞時段提示</strong>：<br>
-      • <strong>Bar Island 跨海步道 (Day 2 下午 16:30-17:30)</strong>：10/16 傍晚 17:15 乾潮！海底沙洲完全露出，正好在晚餐前徒步跨海過島！<br>
-      • <strong>Thunder Hole 觀潮 (Day 3 上午 10:00-10:45)</strong>：滿潮前 1-2 小時海浪擠壓岩洞噴發最壯觀！
-    </div>
-  </div>
-
-  <!-- 5. 已確認預訂卡片 -->
-  <div class="sec-title">🎫 已確認訂單資訊 (Confirmed Reservations)</div>
+  <!-- 3. 已確認預訂卡片 -->
+  <div class="sec-title">🎫 航班與住宿紀錄 (Flight & Hotel Summary)</div>
   <div class="card">
     <div class="booking-item">
       <div class="booking-info">
         <h4>✈️ 去程：DAL ➔ MDW ➔ PWM</h4>
         <p>10/15 (週四) 13:55 DAL 起飛 | 21:55 抵達 PWM</p>
-        <p>西南航空 (Southwest Airlines) WN4522 / WN2398</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>✈️ 回程：PWM ➔ BWI ➔ DAL</h4>
         <p>10/18 (週日) 17:20 PWM 起飛 | 22:55 抵達 DAL</p>
-        <p>西南航空 (Southwest Airlines) WN2676 / WN991</p>
-      </div>
-    </div>
-    <div class="booking-item">
-      <div class="booking-info">
-        <h4>🎫 凱迪拉克山通行證：Cadillac Summit Road (Daytime)</h4>
-        <p>10/17 (週六) 16:30 - 17:00 入場時段 (看日落) <span class="badge-reserve">已購票成功</span></p>
-        <p style="font-size: 0.75rem; color: var(--text-sub);">訂單號：0892632512-1 (請預先列印或截圖 QR Code)</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>🏨 N1：Portland Sheraton at Sable Oaks</h4>
-        <p>10/15 入住 | 含早餐 | 停車 $15/晚</p>
-        <p><a class="loc-link" href="https://maps.google.com/?q=200+Sable+Oaks+Dr,+South+Portland,+ME+04106" target="_blank">📍 200 Sable Oaks Dr, South Portland, ME</a></p>
+        <p>10/15 入住 | 沒什麼特別印象，品質還行。</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>🏨 N2 & N3：Holiday Inn Resort Bar Harbor</h4>
-        <p>10/16 - 10/18 (連續入住 2 晚) | 不含早餐 | 免費停車</p>
-        <p><a class="loc-link" href="https://maps.google.com/?q=123+Eden+St,+Bar+Harbor,+ME+04609" target="_blank">📍 123 Eden St, Bar Harbor, ME</a></p>
+        <p>10/16 - 10/18 (連續入住 2 晚) | 早餐 view 可以看到海，但餐點很普通。</p>
       </div>
     </div>
   </div>
 
-  <!-- 6. 逐日詳細行程 -->
-  <div class="sec-title">🗓️ 逐日詳細行程 (Daily Itinerary)</div>
+  <!-- 4. 逐日詳細真實行程 -->
+  <div class="sec-title">🗓️ 實戰詳細行程 (Actual Itinerary)</div>
 
   <!-- DAY 1 -->
   <div class="card">
@@ -212,29 +144,29 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day1-bg">DAY 1</span>
-          <strong style="margin-left: 6px;">10/15 (週四) 啟程 · 夜赴波特蘭</strong>
+          <strong style="margin-left: 6px;">10/15/2026 (週四) 降落波特蘭 · 美味宵夜驚喜</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+International+Jetport/Portland+Sheraton+at+Sable+Oaks" target="_blank">🗺️ 一鍵導航今日路線 (Google Maps)</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+International+Jetport/Applebee's+Grill+%2B+Bar,+555+Maine+Mall+Rd,+South+Portland,+ME+04106/Portland+Sheraton+at+Sable+Oaks" target="_blank">🗺️ 今日路線 (Google Maps)</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">13:55 (CDT)</div>
-          <div class="tl-content">✈️ 從 <a class="loc-link" href="https://maps.google.com/?q=Dallas+Love+Field" target="_blank">Dallas Love Field (DAL)</a> 起飛前往芝加哥 (MDW)</div>
-          <div class="tl-desc">登機啟程，展開秋季緬因拉車之旅。</div>
+          <div class="tl-time">晚間</div>
+          <div class="tl-content">✈️ 飛機順利降落 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場</a></div>
+          <div class="tl-desc">辦理取車準備前往宵夜與飯店。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">21:55 (EDT)</div>
-          <div class="tl-content">🛬 順利降落 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">Portland (PWM) 機場</a>，辦理取車</div>
-          <div class="tl-desc">取車後直接前往飯店，路程約 8 分鐘。</div>
+          <div class="tl-time">宵夜</div>
+          <div class="tl-content">🍔 首嚐 <a class="loc-link" href="https://maps.google.com/?q=Applebee's+Grill+%2B+Bar,+South+Portland,+ME" target="_blank">Applebee's Grill + Bar</a> <span class="badge-star">意外驚喜</span></div>
+          <div class="tl-desc">因為麥當勞關門了，改去吃人生第一次 Applebee's，意外覺得還蠻不錯的！</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">22:30 (EDT)</div>
-          <div class="tl-content">🏨 入住 <a class="loc-link" href="https://maps.google.com/?q=Portland+Sheraton+at+Sable+Oaks" target="_blank">Portland Sheraton at Sable Oaks</a>，充分休息</div>
-          <div class="tl-desc">享用飯店舒適設施，儲備明日沿海拉車體力。</div>
+          <div class="tl-time">深夜</div>
+          <div class="tl-content">🏨 入住 <a class="loc-link" href="https://maps.google.com/?q=Portland+Sheraton+at+Sable+Oaks" target="_blank">Portland Sheraton at Sable Oaks</a></div>
+          <div class="tl-desc">飯店沒什麼特別印象，整體應該還行，好好休息儲備體力。</div>
         </div>
       </div>
     </details>
@@ -246,198 +178,31 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day2-bg">DAY 2</span>
-          <strong style="margin-left: 6px;">10/16 (週五) 沿海觀景 · 吧港跨海徒步</strong>
+          <strong style="margin-left: 6px;">10/16/2026 (週五) 波特蘭海鮮探秘 · 前往阿卡迪亞</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Portland+Head+Light/Red's+Eats/Hulls+Cove+Visitor+Center/Holiday+Inn+Resort+Bar+Harbor/Bar+Island+Trail/Geddy's+Bar+Harbor" target="_blank">🗺️ 一鍵導航今日精華多點路線</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Bard+Coffee/ISF+Trading/Anglers+Restaurant,+Searsport/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 今日路線 (Google Maps)</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">08:30</div>
-          <div class="tl-content">🍳 享用飯店早餐後辦理退房</div>
+          <div class="tl-time">上午</div>
+          <div class="tl-content">☕ 晨間咖啡：<a class="loc-link" href="https://maps.google.com/?q=Bard+Coffee,+Portland,+ME" target="_blank">Bard Coffee</a></div>
+          <div class="tl-desc">今天天氣不太好，先來喝杯香醇咖啡暖暖身子。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">09:15</div>
-          <div class="tl-content">📸 參觀波特蘭地標燈塔 <a class="loc-link" href="https://maps.google.com/?q=Portland+Head+Light" target="_blank">Portland Head Light</a></div>
-          <div class="tl-desc">💡 <strong>景點簡介</strong>：美國歷史最悠久的燈塔之一，屹立於開闊岩崖上，周圍草皮與海岸花崗岩搭襯秋色，極具氛圍感。</div>
+          <div class="tl-time">午前</div>
+          <div class="tl-content">🦪 港口海鮮體驗：<a class="loc-link" href="https://maps.google.com/?q=ISF+Trading,+Portland,+ME" target="_blank">ISF Trading</a> <span class="badge-star">神奇體驗·超鮮甜</span></div>
+          <div class="tl-desc">吃海膽與生魚片！非常神奇的港口海鮮體驗，提供熱茶、咖啡、廚房以及餐具（餐具需自己洗）。海鮮極致新鮮又便宜！</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">12:30</div>
-          <div class="tl-content">🦞 沿 US-1 公路前行，途經 Wiscasset 享用名店 <a class="loc-link" href="https://maps.google.com/?q=Red's+Eats" target="_blank">Red's Eats</a> 龍蝦堡</div>
-          <div class="tl-desc">🍽️ <strong>必點菜色</strong>：<span class="food-dish">招牌巨大龍蝦堡 (Lobster Roll)</span>、<span class="food-dish">炸蛤蜊 (Fried Clams)</span>。</div>
+          <div class="tl-time">中午</div>
+          <div class="tl-content">🚗 途經 <a class="loc-link" href="https://maps.google.com/?q=Eventide+Oyster+Co.,+Portland,+ME" target="_blank">Eventide Oyster Co.</a></div>
+          <div class="tl-desc">現場需等待 1 小時，決定不排隊，直接開車啟程往 Acadia 前進。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">15:30 - 16:00</div>
-          <div class="tl-content">🏛️ 抵達 <a class="loc-link" href="https://maps.google.com/?q=Hulls+Cove+Visitor+Center" target="_blank">Hulls Cove Visitor Center</a> 諮詢與購買門票 <span class="badge-warn">關門時間：16:30 PM</span></div>
-          <div class="tl-desc">💡 <strong>景點簡介與備註</strong>：阿卡迪亞國家公園官方遊客中心，可在此購買 Park Pass、獲得最新的步道與天氣資訊，並有紀念品店與公共洗手洗手間。（※ 每日開放時間至 16:30 PM 止）。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">16:15</div>
-          <div class="tl-content">🏨 辦理入住 <a class="loc-link" href="https://maps.google.com/?q=Holiday+Inn+Resort+Bar+Harbor" target="_blank">Holiday Inn Resort Bar Harbor</a></div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">16:45 - 17:45</div>
-          <div class="tl-content">🌊 <strong>特色體驗</strong>：<a class="loc-link" href="https://maps.google.com/?q=Bar+Island+Trail" target="_blank">Bar Island 潮汐陸連島步行</a> <span class="badge-tip">17:15 乾潮最佳時段</span></div>
-          <div class="tl-desc">💡 <strong>景點簡介</strong>：趁著乾潮大海退去，踏上露出的天然沙石路步行跨海前往 Bar Island，尋找小海星並回望 Bar Harbor 鎮景。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">18:00</div>
-          <div class="tl-content">🍽️ 鎮上漫步，享用酒吧海鮮名店 <a class="loc-link" href="https://maps.google.com/?q=Geddy's+Bar+Harbor" target="_blank">Geddy's</a> 晚宴</div>
-          <div class="tl-desc">🍽️ <strong>必點菜色</strong>：<span class="food-dish">蒜香奶油烤龍蝦</span>、<span class="food-dish">清蒸大蛤蜊</span>、<span class="food-dish">龍蝦起司披薩</span>。</div>
-        </div>
-      </div>
-    </details>
-  </div>
-
-  <!-- DAY 3 -->
-  <div class="card">
-    <details open>
-      <summary class="day-header">
-        <div>
-          <span class="day-tag day3-bg">DAY 3</span>
-          <strong style="margin-left: 6px;">10/17 (週六) Park Loop 攀岩巡禮 · 凱迪拉克山夕陽</strong>
-        </div>
-        <span class="chevron">▼</span>
-      </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Beehive+Trailhead/Thunder+Hole/Otter+Cliff+Overlook,+Park+Loop+Rd,+Mt+Desert,+ME+04660/Otter+Point/Bubbles+Trailhead/Jordan+Pond+House/Cadillac+Summit+Rd/Bar+Harbor+Lobster+Pound" target="_blank">🗺️ 一鍵導航今日精確全覽路線 (含 Otter Cliff 精確地點)</a>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">08:30 - 10:00</div>
-          <div class="tl-content">🧗 <strong>Trail 1 (刺激攀岩)</strong>：挑戰 <a class="loc-link" href="https://maps.google.com/?q=Beehive+Trailhead+Acadia" target="_blank">Beehive Trail</a> <span class="badge-warn">陡峭梯子步道</span></div>
-          <div class="tl-desc">💡 <strong>景點簡介</strong>：Acadia 最著名的驚險鐵梯步道！沿著絕壁花崗岩手腳並用攀爬鐵梯登頂，180 度俯瞰 Sand Beach 潮浪與沙灘（恐高者可選擇走後山平緩步道繞行）。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">10:00 - 11:00</div>
-          <div class="tl-content">🥾 <strong>Trail 2 (海岸線)</strong>：接續 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path+Trailhead" target="_blank">Ocean Path</a>，漫步精華海岸走廊</div>
-          <div class="tl-desc">
-            💡 <strong>景點連線簡介</strong>：<br>
-            • <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a> <span class="badge-tip">10:00-10:45 最佳觀潮</span>：海浪擠壓岩洞發出雷鳴巨響的天然奇觀。<br>
-            • <a class="loc-link" href="https://maps.google.com/?q=Otter+Cliff+Overlook,+Park+Loop+Rd,+Mt+Desert,+ME+04660" target="_blank">Otter Cliff Overlook</a>：110 英呎高的壯麗花崗岩海崖，大西洋海浪拍岸視覺感極強。<br>
-            • <a class="loc-link" href="https://maps.google.com/?q=Otter+Point+Overlook" target="_blank">Otter Point Overlook</a>：Ocean Path 的終點，平緩的花崗岩粉紅岩石延伸入海，視野開闊安靜。
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">11:15 - 12:15</div>
-          <div class="tl-content">🥾 <strong>Trail 3 (懸空巨石)</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Bubbles+Trailhead" target="_blank">Bubbles Trailhead</a>，健行至 Bubble Rock</div>
-          <div class="tl-desc">💡 <strong>景點簡介</strong>：打卡冰河懸空巨石 (Bubble Rock)，俯瞰 Jordan Pond 與紅葉山谷。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">12:30 - 14:30</div>
-          <div class="tl-content">🥾 <strong>Trail 4 (湖畔景觀)</strong>：抵達 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond+House" target="_blank">Jordan Pond House</a> 享用午餐與環湖漫步</div>
-          <div class="tl-desc">
-            💡 <strong>景點簡介</strong>：清澈冰河湖泊倒映雙子峰。<br>
-            🍽️ <strong>必點菜色</strong>：<span class="food-dish">剛出爐 Popover 點心</span>、<span class="food-dish">緬因龍蝦巧達濃湯</span>。
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">16:30 - 17:30</div>
-          <div class="tl-content">🏔️ 驅車登上 <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Summit+Rd" target="_blank">Cadillac Mountain</a> 欣賞秋日落日晚霞 <span class="badge-reserve">已預約 16:30-17:00</span></div>
-          <div class="tl-desc">💡 <strong>景點簡介</strong>：公園最高峰，360 度俯瞰夕陽染紅的秋葉山谷與法式海灣（日落時間約 17:15 PM）。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">18:00</div>
-          <div class="tl-content">🦞 享用經典地道海鮮名店 <a class="loc-link" href="https://maps.google.com/?q=Bar+Harbor+Lobster+Pound" target="_blank">Bar Harbor Lobster Pound</a> 晚宴</div>
-          <div class="tl-desc">🍽️ <strong>必點菜色</strong>：<span class="food-dish">現撈蒸全龍蝦 (Steamed Maine Lobster)</span>、<span class="food-dish">清蒸大蛤蜊 (Steamed Clams)</span>、<span class="food-dish">藍莓起司蛋糕/派</span>。</div>
-        </div>
-      </div>
-    </details>
-  </div>
-
-  <!-- DAY 4 -->
-  <div class="card">
-    <details open>
-      <summary class="day-header">
-        <div>
-          <span class="day-tag day4-bg">DAY 4</span>
-          <strong style="margin-left: 6px;">10/18 (週日) 吧港晨漫 · 波特蘭生蠔美饌返程</strong>
-        </div>
-        <span class="chevron">▼</span>
-      </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Eventide+Oyster+Co.,+86+Middle+St,+Portland,+ME+04101/Portland+International+Jetport" target="_blank">🗺️ 一鍵導航今日多點路線 (含 Eventide 美食)</a>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">09:30</div>
-          <div class="tl-content">🧳 辦理退房，告別 Bar Harbor 啟程驅車前往 Portland 鎮中心 (車程約 3 小時)</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">13:00 - 14:30</div>
-          <div class="tl-content">🦪 波特蘭名店午宴：<a class="loc-link" href="https://maps.google.com/?q=Eventide+Oyster+Co.,+86+Middle+St,+Portland,+ME+04101" target="_blank">Eventide Oyster Co.</a></div>
-          <div class="tl-desc">
-            💡 <strong>餐廳簡介</strong>：榮獲 James Beard 大獎的名店，緬因州最頂級的生蠔與海鮮酒吧。<br>
-            🍽️ <strong>必點菜色</strong>：<span class="food-dish">焦香黃油溫龍蝦堡 (Brown Butter Lobster Roll)</span>（刈包夾溫龍蝦配焦香黃油）、<span class="food-dish">每日現撈新鮮生蠔 (Fresh Maine Oysters)</span>（配獨家冰沙醬汁）、<span class="food-dish">緬因蛤蜊濃湯 (Clam Chowder)</span>。
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">15:30</div>
-          <div class="tl-content">⛽ 抵達 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場周邊加滿油</a>，完成還車手續</div>
-          <div class="tl-desc">加滿油後辦理還車與登機手續。</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-time">17:20 (EDT)</div>
-          <div class="tl-content">✈️ PWM 起飛 (WN2676) 經 BWI 返回 DAL (22:55 抵達)</div>
-        </div>
-      </div>
-    </details>
-  </div>
-
-  <!-- 7. 實用貼士 -->
-  <div class="sec-title">💡 實用貼士 (Practical Tips)</div>
-  <div class="card">
-    <ul class="clean-list">
-      <li>🌲 <strong>訊號提示 (Signal)</strong>：Park Loop Road 部分山谷路段完全無行動訊號，請務必依賴離線地圖導航。</li>
-      <li>🌅 <strong>山頂保暖 (Warmth)</strong>：10 月中旬 Cadillac 山頂體感溫度較低且風力強勁，請準備毛帽與厚外套。</li>
-      <li>⛽ <strong>加油規劃 (Gas)</strong>：進入 Acadia 園區前，請先在 Ellsworth 或 Bar Harbor 鎮上把油加滿。</li>
-    </ul>
-  </div>
-
-</div>
-
-<script>
-  const targetDate = new Date('2026-10-15T13:55:00-05:00').getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      document.getElementById('next-event-badge').innerText = "🎉 旅程已正式開啟！祝您玩得愉快！";
-      document.getElementById('cd-days').innerText = "00";
-      document.getElementById('cd-hours').innerText = "00";
-      document.getElementById('cd-mins').innerText = "00";
-      document.getElementById('cd-secs').innerText = "00";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
-    document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
-    document.getElementById('cd-mins').innerText = String(minutes).padStart(2, '0');
-    document.getElementById('cd-secs').innerText = String(seconds).padStart(2, '0');
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-</body>
-</html>
+          <div class="tl-time">午後中途站</div>
+          <div class="tl-content">🦞 在地家常海鮮：<a class="loc-link" href="
