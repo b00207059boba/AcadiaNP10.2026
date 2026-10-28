@@ -82,12 +82,6 @@
     details summary::-webkit-details-marker { display: none; }
     .chevron { transition: transform 0.2s; }
     details[open] .chevron { transform: rotate(180deg); }
-
-    /* 照片集錦專用 CSS */
-    .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-    .gallery-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); background: var(--bg-color); box-shadow: var(--shadow); }
-    .gallery-img { width: 100%; height: auto; display: block; object-fit: cover; }
-    .gallery-caption { padding: 12px; font-size: 0.85rem; text-align: center; color: var(--text-main); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -322,38 +316,8 @@
       <li>🌅 <strong>Cadillac Mountain 日出</strong>：看日落被冷到又覺得普，下次一定要爬起來看全美第一道曙光！</li>
       <li>🌊 <strong>漲潮時的 Thunder Hole</strong>：這次沒見識到水柱狂噴的威力。</li>
       <li>🏝️ <strong>Bar Island 潮汐陸連島步行</strong>：沒有算好時間踏沙過海，下次再來踩水！</li>
+      <li>🥐 <strong>熱騰騰的 Popover</strong>：這次在 The Stadium 無緣吃到，下次一定要補回來這個靈魂點心！</li>
     </ul>
-  </div>
-
-  <!-- 5. 照片集錦區塊 -->
-  <div class="sec-title">📸 照片集錦 (有圖有真相)</div>
-  <div class="card gallery-grid" style="background: transparent; border: none; box-shadow: none; padding: 0;">
-    
-    <div class="gallery-item">
-      <img src="IMG_9503.jpg" class="gallery-img" alt="爬山自拍">
-      <div class="gallery-caption">「手腳並用爬上來，滿山秋葉美翻天，請忽視背後那個超搶戲的✌️亂入仔！」</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="IMG_9531.jpg" class="gallery-img" alt="無敵秋景">
-      <div class="gallery-caption">「紅黃綠交織的山林配上蔚藍海岸，這風景根本是直接從月曆上剪下來的吧？」</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="IMG_9554.jpg" class="gallery-img" alt="懸崖起飛">
-      <div class="gallery-caption">「爬上 North Bubbles 看到這片絕美湖景，興奮到直接在懸崖邊原地起飛！」</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="IMG_9552.jpg" class="gallery-img" alt="懸崖起飛2">
-      <div class="gallery-caption">「這張起飛滯空時間有夠長，看來這片風景有減輕地心引力的魔力！」</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="IMG_9547.jpg" class="gallery-img" alt="推石頭">
-      <div class="gallery-caption">「假裝大力士扛起 Bubble Rock 巨石，其實內心超怕它一個不小心滾下去 (汗)。」</div>
-    </div>
-
   </div>
 
 </div>
