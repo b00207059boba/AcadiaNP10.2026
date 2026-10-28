@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🦞 緬因秋日仙境 · 阿卡迪亞實戰回憶與攻略 🍂</title>
+  <title>🦞 緬因吃貨冒險記 · 阿卡迪亞生存與發胖指南 🍂</title>
   <style>
     :root {
       --bg-color: #f8fafc;
@@ -82,6 +82,12 @@
     details summary::-webkit-details-marker { display: none; }
     .chevron { transition: transform 0.2s; }
     details[open] .chevron { transform: rotate(180deg); }
+
+    /* 照片集錦專用 CSS */
+    .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); background: var(--bg-color); box-shadow: var(--shadow); }
+    .gallery-img { width: 100%; height: auto; display: block; object-fit: cover; }
+    .gallery-caption { padding: 12px; font-size: 0.85rem; text-align: center; color: var(--text-main); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -90,42 +96,42 @@
 
   <!-- 1. 頂部歡迎卡片 -->
   <div class="hero-card">
-    <div class="hero-title">🦞 緬因秋日仙境 · 阿卡迪亞旅程紀念 🍂</div>
-    <div class="hero-subtitle">Acadia National Park 4 天 3 晚真實行程紀錄與指南</div>
-    <div class="welcome-badge">🎉 旅程順利圓滿完成！</div>
+    <div class="hero-title">🦞 緬因吃貨冒險記 · 阿卡迪亞發胖指南 🍂</div>
+    <div class="hero-subtitle">手腳並用的硬核攀岩 ✕ 怒吃龍蝦生蠔的真實血淚(與口水)紀錄</div>
+    <div class="welcome-badge">🎉 感謝招待！我們活著回來啦！</div>
   </div>
 
   <!-- 2. 已確認預訂卡片 -->
-  <div class="sec-title">🎫 航班與住宿紀錄 (Flight & Hotel Summary)</div>
+  <div class="sec-title">🎫 交通與睡覺的地方 (打個卡)</div>
   <div class="card">
     <div class="booking-item">
       <div class="booking-info">
         <h4>✈️ 去程：DAL ➔ MDW ➔ PWM</h4>
-        <p>10/15 (週四) 13:55 DAL 起飛 | 21:55 抵達 PWM</p>
+        <p>10/15 (週四) 13:55 DAL 拋下工作起飛 | 21:55 降落 PWM</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>✈️ 回程：PWM ➔ BWI ➔ DAL</h4>
-        <p>10/18 (週日) 17:20 PWM 起飛 | 22:55 抵達 DAL</p>
+        <p>10/18 (週日) 17:20 PWM 依依不捨起飛 | 22:55 回 DAL 面對現實</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>🏨 N1：Portland Sheraton at Sable Oaks</h4>
-        <p>10/15 入住 | 沒什麼特別印象，品質還行。</p>
+        <p>10/15 入住 | 沒什麼特別印象，反正有床能躺就行。</p>
       </div>
     </div>
     <div class="booking-item">
       <div class="booking-info">
         <h4>🏨 N2 & N3：Holiday Inn Resort Bar Harbor</h4>
-        <p>10/16 - 10/18 (連續入住 2 晚) | 早餐 view 可以看到海，但餐點很普通。</p>
+        <p>10/16 - 10/18 | 窗外 view 很美能看海，但早餐實在是有夠普 (笑)。</p>
       </div>
     </div>
   </div>
 
   <!-- 3. 逐日詳細真實行程 -->
-  <div class="sec-title">🗓️ 實戰詳細行程 (Actual Itinerary)</div>
+  <div class="sec-title">🗓️ 實戰流水帳 (有圖有真相)</div>
 
   <!-- DAY 1 -->
   <div class="card">
@@ -133,29 +139,29 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day1-bg">DAY 1</span>
-          <strong style="margin-left: 6px;">10/15/2026 降落波特蘭 · 美味宵夜驚喜</strong>
+          <strong style="margin-left: 6px;">10/15 麥當勞無情關門，宵夜意外的驚喜</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+International+Jetport/Applebee's+Grill+%2B+Bar,+555+Maine+Mall+Rd,+South+Portland,+ME+04106/Portland+Sheraton+at+Sable+Oaks" target="_blank">🗺️ 今日路線 (Google Maps)</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+International+Jetport/Applebee's+Grill+%2B+Bar,+555+Maine+Mall+Rd,+South+Portland,+ME+04106/Portland+Sheraton+at+Sable+Oaks" target="_blank">🗺️ 導航自己看</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
-          <div class="tl-time">晚間</div>
-          <div class="tl-content">✈️ 飛機降落 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場</a></div>
-          <div class="tl-desc">辦理取車準備前往宵夜與飯店。</div>
+          <div class="tl-time">21:55</div>
+          <div class="tl-content">✈️ 21:55 降落 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場</a></div>
+          <div class="tl-desc">順利落地拿車，肚子咕嚕咕嚕叫準備覓食。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">宵夜</div>
-          <div class="tl-content">🍔 首嚐 <a class="loc-link" href="https://maps.google.com/?q=Applebee's+Grill+%2B+Bar,+South+Portland,+ME" target="_blank">Applebee's</a> <span class="badge-star">意外驚喜</span></div>
-          <div class="tl-desc">飛機降落後因為麥當勞關門了，改去吃人生第一次 Applebee's，意外覺得還不錯。</div>
+          <div class="tl-content">🍔 麥當勞拒客，解鎖 <a class="loc-link" href="https://maps.google.com/?q=Applebee's+Grill+%2B+Bar,+South+Portland,+ME" target="_blank">Applebee's</a> <span class="badge-star">真香警告</span></div>
+          <div class="tl-desc">因為麥當勞大門深鎖，只好把人生第一次獻給 Applebee's，沒想到意外覺得還不錯，難道我是天生美國胃？</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">深夜</div>
-          <div class="tl-content">🏨 入住飯店</div>
-          <div class="tl-desc">飯店沒什麼特別印象，整體應該還行。</div>
+          <div class="tl-content">🏨 入住 <a class="loc-link" href="https://maps.google.com/?q=Portland+Sheraton+at+Sable+Oaks" target="_blank">Portland Sheraton at Sable Oaks</a></div>
+          <div class="tl-desc">飯店真的沒什麼特別印象，反正有床能躺就行，儲備體力明天準備暴走。</div>
         </div>
       </div>
     </details>
@@ -167,41 +173,41 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day2-bg">DAY 2</span>
-          <strong style="margin-left: 6px;">10/16/2026 波特蘭海鮮探秘 · 前往阿卡迪亞</strong>
+          <strong style="margin-left: 6px;">10/16 硬核海鮮大排檔 ✕ 在地老饕帶路</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Bard+Coffee/ISF+Trading/Anglers+Restaurant,+Searsport/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 今日路線 (Google Maps)</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Portland+Sheraton+at+Sable+Oaks/Bard+Coffee/ISF+Trading/Anglers+Restaurant,+Searsport/Holiday+Inn+Resort+Bar+Harbor" target="_blank">🗺️ 導航自己看</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">上午</div>
-          <div class="tl-content">☕ 晨間咖啡：<a class="loc-link" href="https://maps.google.com/?q=Bard+Coffee,+Portland,+ME" target="_blank">Bard Coffee</a></div>
-          <div class="tl-desc">天氣不好，先去 Bard Coffee 喝咖啡暖身。</div>
+          <div class="tl-content">☕ 咖啡續命：<a class="loc-link" href="https://maps.google.com/?q=Bard+Coffee,+Portland,+ME" target="_blank">Bard Coffee</a></div>
+          <div class="tl-desc">天氣不優，先來杯咖啡壓壓驚暖暖身。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">午前</div>
-          <div class="tl-content">🦪 港口海鮮體驗：<a class="loc-link" href="https://maps.google.com/?q=ISF+Trading,+Portland,+ME" target="_blank">ISF Trading</a> <span class="badge-star">神奇體驗·超鮮甜</span></div>
-          <div class="tl-desc">去吃海膽和生魚片。很神奇的港口海鮮體驗，提供熱茶、咖啡、廚房以及餐具，但餐具自己洗。海鮮極致新鮮又便宜。</div>
+          <div class="tl-content">🦪 洗碗工體驗：<a class="loc-link" href="https://maps.google.com/?q=ISF+Trading,+Portland,+ME" target="_blank">ISF Trading</a> <span class="badge-star">鮮甜爆表</span></div>
+          <div class="tl-desc">超神奇的港口海鮮體驗！海膽和生魚片新鮮又便宜，有熱茶咖啡跟廚房，缺點是吃完餐具要自己洗，根本是海鮮農場打工換宿。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">中午</div>
-          <div class="tl-content">🚗 途經 <a class="loc-link" href="https://maps.google.com/?q=Eventide+Oyster+Co.,+Portland,+ME" target="_blank">Eventide Oyster Co.</a></div>
-          <div class="tl-desc">現場要等一個小時，所以就決定開車往 Acadia 前進。</div>
+          <div class="tl-content">🚗 果斷放鳥 <a class="loc-link" href="https://maps.google.com/?q=Eventide+Oyster+Co.,+Portland,+ME" target="_blank">Eventide Oyster Co.</a></div>
+          <div class="tl-desc">一聽到要等一小時，二話不說直接踩油門往 Acadia 衝！時間就是金錢（與龍蝦）。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">午後中途站</div>
-          <div class="tl-content">🦞 休息與午餐：<a class="loc-link" href="https://maps.google.com/?q=Anglers+Restaurant,+Searsport,+ME" target="_blank">Anglers Restaurant (Searsport)</a> <span class="badge-star">極酷在地小店</span></div>
-          <div class="tl-desc">很酷的當地人家常海鮮料理，四周荒蕪但很多當地老人家來吃。點了<span class="food-dish">冷的 Lobster Roll</span> 與<span class="food-dish">家常海鮮湯</span>，龍蝦肉超多！</div>
+          <div class="tl-content">🦞 跟著阿公阿嬤吃：<a class="loc-link" href="https://maps.google.com/?q=Anglers+Restaurant,+Searsport,+ME" target="_blank">Anglers Restaurant</a> <span class="badge-star">超酷荒野小店</span></div>
+          <div class="tl-desc">四周荒蕪到懷疑人生，但裡面滿滿當地老人家！點了<span class="food-dish">冷的 Lobster Roll</span> 和<span class="food-dish">家常海鮮湯</span>，龍蝦多到滿出來，老饕誠不欺我！</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">傍晚</div>
-          <div class="tl-content">🏨 Check-in 飯店</div>
-          <div class="tl-desc">接著就是入住飯店，結束拉車的一天。</div>
+          <div class="tl-content">🏨 入住 <a class="loc-link" href="https://maps.google.com/?q=Holiday+Inn+Resort+Bar+Harbor" target="_blank">Holiday Inn Resort Bar Harbor</a></div>
+          <div class="tl-desc">拉車一整天，抵達 Bar Harbor 的飯店洗洗睡。</div>
         </div>
       </div>
     </details>
@@ -213,44 +219,44 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day3-bg">DAY 3</span>
-          <strong style="margin-left: 6px;">10/17/2026 蜂巢山攀岩絕景 · 凱迪拉克日落</strong>
+          <strong style="margin-left: 6px;">10/17 手腳並用爬絕崖 ✕ 山頂吹風懷疑人生</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Beehive+Trailhead/Thunder+Hole/Jordan+Pond/Cadillac+Summit+Rd/Geddy's+Bar+Harbor" target="_blank">🗺️ 今日路線 (Google Maps)</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/Holiday+Inn+Resort+Bar+Harbor/Beehive+Trailhead/Thunder+Hole/Jordan+Pond/Cadillac+Summit+Rd/Geddy's+Bar+Harbor" target="_blank">🗺️ 導航自己看</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">早晨</div>
-          <div class="tl-content">🍳 飯店早餐</div>
-          <div class="tl-desc">天氣不錯，飯店早餐 view 可以看到海，但早餐很普。</div>
+          <div class="tl-content">🍳 <a class="loc-link" href="https://maps.google.com/?q=Holiday+Inn+Resort+Bar+Harbor" target="_blank">Holiday Inn</a> 超普早餐</div>
+          <div class="tl-desc">天氣放晴！飯店早餐看海很浪漫，但吃進嘴裡滿滿的平庸感 (笑)。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">上午</div>
-          <div class="tl-content">🧗 挑戰 <a class="loc-link" href="https://maps.google.com/?q=Beehive+Trailhead" target="_blank">Beehive Trail</a> <span class="badge-top">過癮！秋色頂峰</span></div>
+          <div class="tl-content">🧗 挑戰 <a class="loc-link" href="https://maps.google.com/?q=Beehive+Trailhead" target="_blank">Beehive Trail</a> <span class="badge-top">爽度破表！無敵秋色</span></div>
           <div class="tl-desc">
-            到 Beehive trailhead 停車運氣好，先走去 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path" target="_blank">Ocean Path</a> 看看 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a>，再回頭去走 Beehive。<br>
-            果然是名不虛傳的 Trail，非常有挑戰性但又不會太難，有成就感。只是秋色旺季人太多，整體多排隊了 40-50 分鐘。但走下來非常過癮，景色非常漂亮，秋色頂峰紅黃綠皆有還有海景。
+            人品爆發順利停到車！先悠哉去 <a class="loc-link" href="https://maps.google.com/?q=Ocean+Path" target="_blank">Ocean Path</a> 探望 <a class="loc-link" href="https://maps.google.com/?q=Thunder+Hole" target="_blank">Thunder Hole</a>，接著重頭戲上場。<br>
+            Beehive 果然名不虛傳，在鐵梯上爬得很有成就感。雖然秋季旺季塞車多排了 40-50 分鐘，但登頂那瞬間，滿山紅黃綠交織配上無敵海景，實在太～過～癮～啦！
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">午後</div>
-          <div class="tl-content">🌊 湖畔打卡：<a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond" target="_blank">Jordan Pond</a></div>
-          <div class="tl-desc">停車後就在湖邊看了一眼，看到奶奶山。</div>
+          <div class="tl-content">🌊 <a class="loc-link" href="https://maps.google.com/?q=Jordan+Pond" target="_blank">Jordan Pond</a> 沾醬油打卡</div>
+          <div class="tl-desc">停好車後在湖邊火速看了一眼傳說中的「奶奶山（The Bubbles）」，任務達成。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">傍晚</div>
-          <div class="tl-content">🏔️ 登頂 <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Mountain" target="_blank">Cadillac Mountain</a> 看日落</div>
-          <div class="tl-desc">預約好的行程，結果超冷且景色不如 Beehive，感覺還是需要看日出才會是最好的角度。</div>
+          <div class="tl-content">🏔️ <a class="loc-link" href="https://maps.google.com/?q=Cadillac+Mountain" target="_blank">凱迪拉克山</a> 瑟瑟發抖看日落</div>
+          <div class="tl-desc">千辛萬苦預約到，結果上面超級冷！而且日落景色完全被早上的 Beehive 屌打，結論：這邊還是乖乖早起看日出比較實在。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">晚餐</div>
           <div class="tl-content">🥧 晚餐：<a class="loc-link" href="https://maps.google.com/?q=Geddy's+Bar+Harbor" target="_blank">Geddy's</a></div>
-          <div class="tl-desc">沒什麼特別印象，吃了當地的藍莓派。</div>
+          <div class="tl-desc">整體沒什麼特別印象（可能還在回味早上的風景），隨意吃個當地藍莓派。</div>
         </div>
       </div>
     </details>
@@ -262,65 +268,92 @@
       <summary class="day-header">
         <div>
           <span class="day-tag day4-bg">DAY 4</span>
-          <strong style="margin-left: 6px;">10/18/2026 North Bubbles 健行 · 全村第一龍蝦堡</strong>
+          <strong style="margin-left: 6px;">10/18 懸崖起飛 ✕ 二姐認證全村第一龍蝦堡</strong>
         </div>
         <span class="chevron">▼</span>
       </summary>
-      <a class="route-btn" href="https://www.google.com/maps/dir/The+Stadium/North+Bubbles+Trailhead/Hulls+Cove+Visitor+Center/Bar+Harbor+Lobster+Pound/Portland+Head+Light/Portland+International+Jetport" target="_blank">🗺️ 今日路線 (Google Maps)</a>
+      <a class="route-btn" href="https://www.google.com/maps/dir/The+Stadium,+62+Main+St,+Bar+Harbor,+ME+04609/North+Bubbles+Trailhead/Hulls+Cove+Visitor+Center/Bar+Harbor+Lobster+Pound/Portland+Head+Light/Portland+International+Jetport" target="_blank">🗺️ 導航自己看</a>
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">清晨</div>
-          <div class="tl-content">☕ 買早餐咖啡：<a class="loc-link" href="https://maps.google.com/?q=The+Stadium,+Bar+Harbor" target="_blank">The Stadium (Bar Harbor)</a></div>
-          <div class="tl-desc">早起先去買早餐咖啡，只能外帶。可惜沒有吃到 popover，甜甜圈還行不會太甜，湯也中規中矩。</div>
+          <div class="tl-content">☕ <a class="loc-link" href="https://maps.google.com/?q=The+Stadium,+62+Main+St,+Bar+Harbor,+ME+04609" target="_blank">The Stadium</a> 買早餐</div>
+          <div class="tl-desc">早起買咖啡只能外帶，無緣傳說中的 popover。甜甜圈不會太甜算過關，湯品也就中規中矩。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">上午</div>
-          <div class="tl-content">🥾 健行打卡 <a class="loc-link" href="https://maps.google.com/?q=Bubble+Rock" target="_blank">懸空巨石</a> & <a class="loc-link" href="https://maps.google.com/?q=North+Bubble+Trailhead" target="_blank">North Bubbles</a> <span class="badge-star">湖景超美·非常值得</span></div>
-          <div class="tl-desc">之後去看懸空巨石以及爬 North Bubbles。難度中等，會累但也是很值得，North Bubbles 看湖很漂亮。</div>
+          <div class="tl-content">🥾 打卡 <a class="loc-link" href="https://maps.google.com/?q=Bubble+Rock" target="_blank">懸空巨石</a> & <a class="loc-link" href="https://maps.google.com/?q=North+Bubble+Trailhead" target="_blank">North Bubbles</a> <span class="badge-star">湖景超美瘋狂彈跳</span></div>
+          <div class="tl-desc">難度中等，爬得有點喘但超值得！懸崖邊看 Jordan Pond 湖景有夠漂亮，忍不住原地起飛跳躍拍了好多照！</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">中午前</div>
-          <div class="tl-content">🏛️ 休息停靠：<a class="loc-link" href="https://maps.google.com/?q=Hulls+Cove+Visitor+Center" target="_blank">Hulls Cove Visitor Center</a></div>
-          <div class="tl-desc">接著去上廁所休息。</div>
+          <div class="tl-content">🏛️ 借廁所好朋友：<a class="loc-link" href="https://maps.google.com/?q=Hulls+Cove+Visitor+Center" target="_blank">遊客中心</a></div>
+          <div class="tl-desc">排毒兼休息一下。</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">午餐</div>
-          <div class="tl-content">🦞 頂級美饌：<a class="loc-link" href="https://maps.google.com/?q=Bar+Harbor+Lobster+Pound" target="_blank">Bar Harbor Lobster Pound</a> <span class="badge-top">二姐認證·全村第一</span></div>
-          <div class="tl-desc">中午吃 Bar Harbor Lobster Pound，龍蝦堡果然是全村第一，二姐認證！</div>
+          <div class="tl-content">🦞 <a class="loc-link" href="https://maps.google.com/?q=Bar+Harbor+Lobster+Pound" target="_blank">Bar Harbor Lobster Pound</a> <span class="badge-top">👑 二姐認證全村第一！</span></div>
+          <div class="tl-desc">壓軸大餐！這家龍蝦堡美味程度直接封神，榮獲二姐親口認證「全村第一」的最高榮譽！</div>
         </div>
         <div class="tl-item">
           <div class="tl-dot"></div>
           <div class="tl-time">下午</div>
-          <div class="tl-content">📸 返程停靠：<a class="loc-link" href="https://maps.google.com/?q=Portland+Head+Light" target="_blank">Portland 燈塔</a></div>
-          <div class="tl-desc">回到 Portland 去了燈塔看一眼，天氣好但風很冷。隨後前往機場。</div>
+          <div class="tl-content">📸 說再見：<a class="loc-link" href="https://maps.google.com/?q=Portland+Head+Light" target="_blank">波特蘭燈塔</a></div>
+          <div class="tl-desc">回程繞去波特蘭看燈塔最後一眼，天氣超好但是風冷到想打人。隨後去機場乖乖還車準備登機。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-time">17:20</div>
+          <div class="tl-content">✈️ 17:20 <a class="loc-link" href="https://maps.google.com/?q=Portland+International+Jetport" target="_blank">PWM 機場</a> 依依不捨起飛返回 DAL</div>
+          <div class="tl-desc">帶著滿滿的脂肪...啊不是，是滿滿的美麗回憶，順利起飛回家！</div>
         </div>
       </div>
     </details>
   </div>
 
-  <!-- 4. 實用貼士 -->
-  <div class="sec-title">💡 經驗總結與貼士 (Travel Tips)</div>
+  <!-- 4. 留給下次區塊 -->
+  <div class="sec-title">🎯 遺珠之憾 (留給下次的藉口)</div>
   <div class="card">
-    <ul class="clean-list" style="list-style: none;">
-      <li style="font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid var(--border-color);">🧗 <strong>Beehive Trail</strong>：秋色頂峰人多需多預留排隊時間，但攀爬體驗與景致絕佳！</li>
-      <li>🏔️ <strong>Cadillac Mountain</strong>：秋季山頂風大體感極冷，日落視角普通，建議未來優先考慮日出票。</li>
-      <li style="font-size: 0.85rem; padding: 6px 0;">🦞 <strong>龍蝦堡推薦</strong>：Bar Harbor Lobster Pound 的龍蝦堡獲得一致最高好評！</li>
+    <ul class="next-time-list">
+      <li>🦪 <strong>Eventide Oyster Co.</strong>：這次看到要排一小時秒放棄，下次一定要吃到你！</li>
+      <li>🌅 <strong>Cadillac Mountain 日出</strong>：看日落被冷到又覺得普，下次一定要爬起來看全美第一道曙光！</li>
+      <li>🌊 <strong>漲潮時的 Thunder Hole</strong>：這次沒見識到水柱狂噴的威力。</li>
+      <li>🏝️ <strong>Bar Island 潮汐陸連島步行</strong>：沒有算好時間踏沙過海，下次再來踩水！</li>
     </ul>
   </div>
 
-  <!-- 5. 留給下次區塊 -->
-  <div class="sec-title">🎯 留給下次 (Bucket List for Next Time)</div>
-  <div class="card">
-    <ul class="next-time-list">
-      <li>🦪 <strong>Eventide Oyster Co.</strong>：這次排隊要等 1 小時，留待下次提早預約或避開尖峰品嚐！</li>
-      <li>🌅 <strong>Cadillac Mountain 日出</strong>：日落角度與體感稍遜，下次一定要鎖定第一道曙光的震撼角度！</li>
-      <li>🌊 <strong>漲潮時的 Thunder Hole</strong>：體驗大浪擠壓岩洞噴發的雷鳴奇觀。</li>
-      <li>🏝️ <strong>Bar Island 潮汐陸連島步行</strong>：趁著乾潮退去，踏上天然沙石步道徒步過海。</li>
-    </ul>
+  <!-- 5. 照片集錦區塊 -->
+  <div class="sec-title">📸 照片集錦 (有圖有真相)</div>
+  <div class="card gallery-grid" style="background: transparent; border: none; box-shadow: none; padding: 0;">
+    
+    <div class="gallery-item">
+      <img src="IMG_9503.jpg" class="gallery-img" alt="爬山自拍">
+      <div class="gallery-caption">「手腳並用爬上來，滿山秋葉美翻天，請忽視背後那個超搶戲的✌️亂入仔！」</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="IMG_9531.jpg" class="gallery-img" alt="無敵秋景">
+      <div class="gallery-caption">「紅黃綠交織的山林配上蔚藍海岸，這風景根本是直接從月曆上剪下來的吧？」</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="IMG_9554.jpg" class="gallery-img" alt="懸崖起飛">
+      <div class="gallery-caption">「爬上 North Bubbles 看到這片絕美湖景，興奮到直接在懸崖邊原地起飛！」</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="IMG_9552.jpg" class="gallery-img" alt="懸崖起飛2">
+      <div class="gallery-caption">「這張起飛滯空時間有夠長，看來這片風景有減輕地心引力的魔力！」</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="IMG_9547.jpg" class="gallery-img" alt="推石頭">
+      <div class="gallery-caption">「假裝大力士扛起 Bubble Rock 巨石，其實內心超怕它一個不小心滾下去 (汗)。」</div>
+    </div>
+
   </div>
 
 </div>
